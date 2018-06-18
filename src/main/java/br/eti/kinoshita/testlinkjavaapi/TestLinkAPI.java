@@ -768,9 +768,10 @@ public class TestLinkAPI {
             String summary, List<TestCaseStep> steps, String preconditions, TestCaseStatus status,
             TestImportance importance, ExecutionType execution, Integer order, Integer internalId,
             Boolean checkDuplicatedName, ActionOnDuplicate actionOnDuplicatedName) throws TestLinkAPIException {
-        return this.testCaseService.createTestCase(testCaseName, testSuiteId, testProjectId, authorLogin, summary,
+        TestCase testCase = new TestCase(null, testCaseName, testSuiteId, testProjectId, authorLogin, summary,
                 steps, preconditions, status, importance, execution, order, internalId, checkDuplicatedName,
                 actionOnDuplicatedName);
+        return this.testCaseService.createTestCase(testCase);
     }
 
     /**
